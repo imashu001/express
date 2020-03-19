@@ -18,16 +18,7 @@
                 
             <li>
                 <p>
-                    <% if (locals.user && locals.user.id == post.user.id){ %>
-                    <small>
-                        <a href="/posts/destroy/<%= post.id %>">X</a>
-                    </small>
-                    <% } %>
-                    <%= post.content %>
-                    <br>
-                    <small>
-                        <%= post.user.name %>
-                    </small>
+                    <%- include('_posts'); %>
                 </p>
                 <div class="post-comments">
                     <% if (locals.user){ %>
@@ -42,19 +33,13 @@
                     <div class="post-comments-list">
                         <ul id="post-comments-<%= post._id %>">
                             <% for (comment of post.comments){%>
+                                <li>
+                                    <p>
+                                        <%- include('_comments'); %>
+                                    </p> 
+                                </li>
                                 
-                            <p>
-                                <% if (locals.user && locals.user.id == comment.user.id){ %>
-                                <small>
-                                    <a href="/comments/destroy/<%= comment.id %>">X</a>
-                                </small>
-                                <% } %>
-                                <%= comment.content %>
-                                <br>
-                                <small>
-                                    <%= comment.user.name %>
-                                </small>
-                            </p>    
+                               
                             <%} %>
                         </ul>
                     </div>
