@@ -13,6 +13,10 @@
 
     <body>
         <%- include('_header'); %>
+        <% if(flash.sucess && flash.sucess.length > 0) { %>
+            <h1> <%= flash.sucess %></h1>
+            
+            <%}%>
         
         <main id="layout-main">
             <%- body %>
